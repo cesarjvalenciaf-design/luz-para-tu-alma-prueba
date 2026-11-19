@@ -58,6 +58,21 @@ function renderMeditaciones(){
    card.append(subt,h,btn);cont.append(card);
  }
 }
+function medCrearLectura(texto){
+ const lectura=document.createElement('article');lectura.className='med-lectura';
+ const bloques=String(texto||'').replace(/\r\n?/g,'\n').trim().split(/\n\s*\n/);
+ for(const bloque of bloques){
+  const lineas=bloque.split('\n').map(x=>x.trim()).filter(Boolean);
+  for(const linea of lineas){
+   // Si el texto fue pegado como un solo bloque, crear pausas visuales sin alterar palabras.
+   const frases=linea.length>450?linea.match(/[^.!?]+(?:[.!?]+(?=\s|$)|$)/g):null;
+   if(frases&&frases.length>=5){
+    for(let i=0;i<frases.length;i+=3){const p=document.createElement('p');p.textContent=frases.slice(i,i+3).join('').trim();lectura.append(p)}
+   }else{const p=document.createElement('p');p.textContent=linea;lectura.append(p)}
+  }
+ }
+ return lectura;
+}
 function abrirMeditacion(m){
  medActual=m;const d=document.getElementById('meditacionDetalle');d.replaceChildren();d.classList.remove('hide');
  const titulo=document.createElement('h2');titulo.textContent=m.titulo;
@@ -78,7 +93,7 @@ function abrirMeditacion(m){
   }else{
    const post=m.post||medBuscarPublicacion(m.titulo);
    if(!post?.body){contenido.textContent='El texto completo todavía no está publicado. Puedes incorporarlo desde Administración, en la categoría Meditación, usando este mismo título.';return;}
-   const lectura=document.createElement('div');lectura.className='med-lectura';lectura.textContent=post.body;contenido.append(lectura);
+   contenido.append(medCrearLectura(post.body));
   }
  }
  escuchar.onclick=()=>modo('audio');leer.onclick=()=>modo('texto');

@@ -792,7 +792,10 @@ nav button:active {
 .med-lista{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px}
 .med-lista .card{cursor:default}.med-lista h3{margin:8px 0}.med-lista button{margin-top:10px}
 .med-opciones{display:flex;gap:8px;margin:14px 0}.med-opciones button{flex:1}.med-opciones button[aria-pressed="true"]{background:#173a32;color:white}
-.med-lectura{font-family:Georgia,serif;font-size:1.1rem;line-height:1.85;white-space:pre-wrap}
+.med-lectura{font-family:Georgia,serif;font-size:clamp(1.08rem,2vw,1.22rem);line-height:1.9;max-width:72ch;margin:20px auto 8px;overflow-wrap:break-word;color:#183a32}
+.med-lectura p{margin:0 0 1.35em;text-wrap:pretty}
+.med-lectura p:last-child{margin-bottom:0}
+@media(max-width:600px){.med-lectura{font-size:1.08rem;line-height:1.8;margin:16px 0}.med-lectura p{margin-bottom:1.15em}}
 .med-audio{width:100%;margin:14px 0}.med-descarga{display:inline-block;margin:8px 0;color:#176d58}
 </style>
     <script src="config.js"></script>
