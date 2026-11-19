@@ -1,0 +1,9 @@
+VERSIÓN DE PRUEBA - NO REEMPLAZAR EL SITIO SIN PROBAR.
+1. Haz copia de seguridad del repositorio actual.
+2. Sube estos archivos manteniendo las rutas (incluida carpeta audios).
+3. Prueba en una rama o repositorio de prueba antes de publicar.
+4. Audios disponibles: meditaciones 9 y 10.
+5. Para activar Leer, publica los textos completos en Administración > Meditación con títulos idénticos.
+6. Los MP3 restantes requieren sus archivos finales.
+7. La descarga MP3 funciona con el enlace Guardar MP3; la reproducción offline requiere que el archivo esté disponible localmente.
+8. Comprueba las políticas RLS de Supabase antes de distribuir la app.
