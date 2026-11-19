@@ -710,6 +710,18 @@ nav button:active {
 <div id="adminTestimonios"></div>
 
             </div>
+            <div id="adminMeditaciones" class="hide">
+              <h2>🎧 Administrar meditaciones</h2>
+              <div class="card">
+                <p>Publica una meditación con audio MP3 y, si deseas, su texto. Se mostrará automáticamente en Meditaciones para tu Alma.</p>
+                <label for="medTitulo">Título de la meditación</label><input id="medTitulo" placeholder="Ejemplo: Dios escucha tu oración">
+                <label for="medReferencia">Referencia bíblica</label><input id="medReferencia" placeholder="Ejemplo: Jeremías 33:3">
+                <label for="medTexto">Texto completo (opcional)</label><textarea id="medTexto" placeholder="Pega aquí la meditación para que también se pueda leer"></textarea>
+                <label for="medArchivo">Audio MP3</label><input id="medArchivo" type="file" accept=".mp3,audio/mpeg">
+                <button type="button" id="medPublicar" onclick="publicarMeditacionNueva()">Publicar meditación</button>
+                <p id="medEstado" role="status"></p>
+              </div>
+            </div>
             <div id="adminMusica" class="hide">
             <h2>🎵 Administrar música</h2>
 <div class="card">
